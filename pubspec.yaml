@@ -8,4 +8,5 @@ environment:
 
 dependencies:
   http: ^0.13.5
+  intl: ^0.17.0
   teledart: ^0.3.4
