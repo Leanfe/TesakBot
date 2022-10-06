@@ -18,15 +18,19 @@ class LogManager {
   void init() {
     DateFormat fileFormat = DateFormat("yyyy-MM-dd");
 
-    log = new File("./logs/${fileFormat.format(DateTime.now())}.log");
-
-    if (log.existsSync()) {
-      stdout.writeln("Found log-file!");
-      return;
+    if (!Directory("logs").existsSync()) {
+      Directory("logs").create();
     }
 
-    log.createSync();
-    stdout.writeln("Log-file not found! Create...");
+    try {
+      log = new File("./logs/${fileFormat.format(DateTime.now())}.log");
+    } catch (e) {
+      stdout.writeln("Log-file not found! Create...");
+      log.createSync();
+    }
+
+    stdout.writeln("Found log-file!");
+
   }
 
   void sendLog(LogOperationType type, String message, DateTime date, [int chat_id = 0, int error_code = -1]) {
