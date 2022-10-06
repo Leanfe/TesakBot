@@ -37,7 +37,7 @@ void main() async {
   logManager.init();
   
   teledart.onCommand('start').listen((message) => {
-    logManager.addUserLog(message.chat.id, "Use /start command.", DateTime.now()),
+    logManager.sendLog(LogOperationType.INFO, "Used /start command.", DateTime.now(), message.chat.id),
     message.reply(messages[0])
   });
 
@@ -46,28 +46,28 @@ void main() async {
   });
 
   teledart.onCommand('quote').listen((event) async => {
-    logManager.addUserLog(event.chat.id, "Use /quote command.", DateTime.now()),
+    logManager.sendLog(LogOperationType.INFO, "Used /quote command.", DateTime.now(), event.chat.id),
     event.reply("Совет 🗳: " + await Utils.parseQuote())
   });
 
   teledart.onCommand('about').listen((event) => {
-    logManager.addUserLog(event.chat.id, "use /about command.", DateTime.now()),
+    logManager.sendLog(LogOperationType.INFO, "Used /about command.", DateTime.now(), event.chat.id),
     event.reply(messages[2])
   });
 
   teledart.onCommand('github').listen((event) => {
-    logManager.addUserLog(event.chat.id, "Use /github command.", DateTime.now()),
+    logManager.sendLog(LogOperationType.INFO, "Used /github command.", DateTime.now(), event.chat.id),
     event.reply(messages[3])
   });
 
   teledart.onCommand('book').listen((event) => {
-    logManager.addUserLog(event.chat.id, "Use /book command.", DateTime.now()),
+    logManager.sendLog(LogOperationType.INFO, "Used /book command.", DateTime.now(), event.chat.id),
     event.reply(messages[4]),
     event.replyDocument(new File("./files/Restrukt.fb2"))
   });
 
   teledart.onCommand('contact').listen((event) => {
-    logManager.addUserLog(event.chat.id, "Use /contact command.", DateTime.now()),
+    logManager.sendLog(LogOperationType.INFO, "Used /contact command.", DateTime.now(), event.chat.id),
     event.reply(messages[5])
   });
 
