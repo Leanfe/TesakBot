@@ -118,3 +118,4 @@ fabric.properties
 
 !.idea/codeStyles
 !.idea/runConfigurations
+util/user/userManager.dart
