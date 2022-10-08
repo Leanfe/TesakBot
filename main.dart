@@ -2,7 +2,6 @@ import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
 import 'commands/baseCommands.dart';
-import 'commands/chatCommands.dart';
 import 'util/logManager.dart';
 
 const BOT_TOKEN = '5776772483:AAH6eX-BzoWu_lQHw3L0VK_rV2LL9_2QNMY';
@@ -17,7 +16,6 @@ void main() async {
   teledart.start();
 
   new BaseCommands(teledart, logManager).loadCommands();
-  new ChatCommands(teledart, logManager).loadCommands();
 }
 
 String getToken() {
